@@ -13,3 +13,4 @@ env.bak/
 venv.bak/
 
 pyrightconfig.json
+.DS_Store
