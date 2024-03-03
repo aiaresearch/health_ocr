@@ -38,8 +38,13 @@ def main(args):
 
     demo = gr.Interface(
         fn=process,
-        inputs=[gr.Image()],
-        outputs=[gr.Markdown(label="Advice")],
+        inputs=[gr.Image(label="上传包装图片")],
+        outputs=[gr.Markdown(label="分析结果")],
+        title="食品包装营养成分分析模型",
+        description="上传食品包装图片，模型将识别图片中的文字，分析营养成分，并提供健康建议。",
+        examples=[
+            ["./test.png"]
+        ]
     )
     demo.launch()
 
