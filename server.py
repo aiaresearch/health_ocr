@@ -1,5 +1,6 @@
 import argparse
 import base64
+import json
 import io
 import os
 
@@ -24,6 +25,16 @@ def create_processor(nutrition_advisor):
 
 
 def main(args):
+    # Load the OCR token and Zhipu API key from config.json
+    try:
+        with open("config.json", "r") as f:
+            config = json.load(f)
+            ocr_token = config["baidu_ocr_token"]
+            zhipu_api_key = config["zhipu_ai_apikey"]
+    except FileNotFoundError:
+        pass
+
+    # Load the OCR token and Zhipu API key from environment variables
     ocr_token = os.getenv("BAIDU_OCR_TOKEN")
     zhipu_api_key = os.getenv("ZHIPU_API_KEY")
     if args.ocr_token:
@@ -54,7 +65,7 @@ if __name__ == "__main__":
         description='Nutrition Advisor Gradio Demo',
         formatter_class=argparse.RawTextHelpFormatter,
         epilog='Example usage:\n'
-                f'python server.py --ocr_token [BAIDU OCR TOKEN] --zhipu_api_key [ZHIPU AI API KEY]\n'
+                f'python server.py --ocr_token [BAIDU_OCR_TOKEN] --zhipu_api_key [ZHIPU_API_KEY]\n'
                 '\n'
                 'You can also set the environment variables BAIDU_OCR_TOKEN and ZHIPU_API_KEY instead of passing them as arguments.\n'
     )
