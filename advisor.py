@@ -71,8 +71,9 @@ class NutritionAdvisor:
                 {"role": "user", "content": "这是一些信息，其中包含了这个食物的营养成分表,请你根据其数据计算每一百克或每一百毫升有多少能量、蛋白质、脂肪、碳水化合物和钠"},
                 {"role": "user", "content": '这是这个食物的营养成分表' + nutritions_str},
                 {"role": "assistant", "content": "好的"},
-                {"role": "user", "content": "然后请你根据这些数据，判断这个食品是不是低糖食品、高蛋白食品和低脂食品。低糖食品的定义是碳水化合物含量需≤5g/100g 或 ≤5g/100mL，高蛋白食品的定义是蛋白质含量需≥12g/100g 或 ≥6g/100mL，低脂肪食品的定义是≤3g/100g 或 ≤1.5g/100mL"},
-                {"role": "user", "content": "并请你提供对应的健身建议. 请用 MarkDown 样式输出信息"}
+                {"role": "user", "content": "然后请你根据这些数据，判断这个食品是不是低糖食品、高蛋白食品和低脂食品。低糖食品的定义是碳水化合物含量需≤5g/100g 或 ≤5g/100mL，高蛋白食品的定义是蛋白质含量需≥12g/100g 或 ≥6g/100mL，低脂肪食品的定义是≤3g/100g 或 ≤1.5g/100mL。请使用表格形式呈现。表头包括营养成分	每百克含量	分析"},
+                {"role": "user", "content": "并请你提供对应的健身建议."},
+                {"role": "user", "content": "请你以 # 分析结果 为题，以 Markdown 形式撰写建议。"}
             ],
         )
         return response.choices[0].message.dict()["content"]
