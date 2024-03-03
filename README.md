@@ -26,6 +26,10 @@ Alternatively, you can set the environment variables `BAIDU_OCR_TOKEN` and `ZHIP
 
 Or, you can set the tokens in `config.json`. The script will read the tokens from the file if they are not passed as arguments or set as environment variables.
 
+Then, you can access the Gradio interface by visiting [http://localhost:7860](http://localhost:7860) in your web browser.
+
+**Note**: If you want to run the server on a different port or allow connecions from LAN, you can specify the port using the `--port` argument and `--host` argument.
+
 ### Running the Nutrition Advisor (advisor.py)
 
 If you want to use the `NutritionAdvisor` class separately, you can run the advisor script with the following command:

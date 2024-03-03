@@ -57,8 +57,9 @@ def main(args):
             ["./test.png"]
         ]
     )
-    demo.launch()
-
+    host = args.host if args.host else "127.0.0.1"
+    port = args.port if args.port else 7860
+    demo.launch(server_name=host, server_port=port)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -71,5 +72,7 @@ if __name__ == "__main__":
     )
     parser.add_argument('--ocr_token', type=str, help='Token for Baidu OCR service.')
     parser.add_argument('--zhipu_api_key', type=str, help='API key for Zhipu AI GLM-4.')
+    parser.add_argument('--host', type=str, help='Host for the server.')
+    parser.add_argument('--port', type=int, help='Port for the server.')
     args = parser.parse_args()
     main(args)
